@@ -110,6 +110,10 @@ else
     Kohana::$config->attach(new Config_File('config/live'));
 }
 /**
+ * Добовляем соль
+ */
+Cookie::$salt = 'phonebook - autor Big_Shark';
+/**
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
 Kohana::modules(array(

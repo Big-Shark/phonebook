@@ -100,8 +100,15 @@ Kohana::$log->attach(new Log_File(APPPATH.'logs'));
 /**
  * Attach a file reader to config. Multiple readers are supported.
  */
-Kohana::$config->attach(new Config_File);
-
+Kohana::$config->attach(new Config_File('config'));
+if (Kohana::$environment == Kohana::DEVELOPMENT)
+{
+    Kohana::$config->attach(new Config_File('config/development'));
+}
+else
+{
+    Kohana::$config->attach(new Config_File('config/live'));
+}
 /**
  * Enable modules. Modules are referenced by a relative or absolute path.
  */
@@ -109,10 +116,10 @@ Kohana::modules(array(
 	// 'auth'       => MODPATH.'auth',       // Basic authentication
 	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
-	// 'database'   => MODPATH.'database',   // Database access
+	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
-	// 'minion'     => MODPATH.'minion',     // CLI Tasks
-	// 'orm'        => MODPATH.'orm',        // Object Relationship Mapping
+	'minion'     => MODPATH.'minion',     // CLI Tasks
+	'orm'        => MODPATH.'orm',        // Object Relationship Mapping
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
@@ -121,8 +128,8 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
-Route::set('default', '(<controller>(/<action>(/<id>)))')
+Route::set('default', '(<action>)')
 	->defaults(array(
-		'controller' => 'Welcome',
+		'controller' => 'Main',
 		'action'     => 'index',
 	));

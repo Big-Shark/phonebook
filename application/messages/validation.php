@@ -1,0 +1,27 @@
+<?php defined('SYSPATH') or die('No direct script access.');
+
+return array(
+	'alpha'         => ':field должен содержать только буквы',
+	'alpha_dash'    => ':field должен содержать только цифры, буквы и тире',
+	'alpha_numeric' => ':field должен содержать только буквы и цифры',
+	'color'         => ':field должен быть цветом',
+	'credit_card'   => ':field должен быть номером кредитной карты',
+	'date'          => ':field должен быть датой',
+	'decimal'       => ':field должен быть десятичные с :param2 знаками',
+	'digit'         => ':field должен быть цифра',
+	'email'         => ':field должен быть адрес электронной почты',
+	'email_domain'  => ':field должен содержать действительный почтовый домен',
+	'equals'        => ':field должен быть равна :param2',
+	'exact_length'  => ':field должен быть точно :param2 символов',
+	'in_array'      => ':field должен быть одним из доступных вариантов',
+	'ip'            => ':field должен быть IP-адрес',
+	'matches'       => ':field должен быть такими же, как :param2',
+	'min_length'    => ':field должен быть не менее :param2 символов',
+	'max_length'    => ':field должен быть меньше :param2 символов',
+	'not_empty'     => ':field не должен быть пустым',
+	'numeric'       => ':field должен быть числовым',
+	'phone'         => ':field должен быть номер телефона',
+	'range'         => ':field должен быть в пределах от :param2 к :param3',
+	'regex'         => ':field не соответствует требуемому формату',
+	'url'           => ':field должно быть URL',
+);

@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `people`;
+
 CREATE TABLE `people` (
   `id` int(11)  NOT NULL,
   `first_name` varchar(50)  NOT NULL,

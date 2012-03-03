@@ -22,13 +22,6 @@
 </head>
 <body>
 	
-	<!--form class="well form-search">
-		<fieldset>
-			<legend>Поиск по телефонной книге</legend>
-			<input required type="text" class="search-query" id="textInp">
-			<button type="submit" class="btn">Искать</button>
-		</fieldset>
-	</form-->
 	<table id="table" class="table table-striped table-bordered table-condensed">
 		<thead>
 			<tr>
@@ -42,7 +35,7 @@
 		</thead>
 		<tbody>
 			<?php foreach($people as $person):?>
-			<tr>
+			<tr data-person-id="<?=$person->pk();?>">
 				<td><?=$person->name;?></td>
 				<td><?=$person->city;?></td>
 				<td><?=$person->street;?></td>
@@ -53,9 +46,9 @@
 			<?php endforeach;?>
 		</tbody>
 	</table>
-	<a class="btn" data-toggle="modal" href="#add" >Добавить нового сотрудника</a>
+	<a class="btn" data-toggle="modal" id="add" href="#modal" >Добавить нового сотрудника</a>
 	
-	<div class="modal hide fade" id="add">
+	<div class="modal hide fade" id="modal">
 		<div class="modal-header">
 			<a class="close" data-dismiss="modal">×</a>
 			<h3>Форма добавления сотрудника</h3>
@@ -104,11 +97,11 @@
 					  <input required type="tel" name="phone" id="phone" class="input-xlarge" />
 					</div>
 				</div>
-				<input type="hidden" name="id" />
+				<input type="hidden" name="id" id="id"/>
 			</form>
 		</div>
 		<div class="modal-footer">
-			<a id="submit" class="btn btn-primary">Сохранить</a>
+			<a id="submit" class="btn btn-primary" data-action="add">Сохранить</a>
 			<a data-dismiss="modal" class="btn">Закрыть</a>
 		</div>
     </div>

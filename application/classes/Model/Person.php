@@ -49,6 +49,20 @@ class Model_Person extends ORM {
 	}
 	
 	/**
+	 * Filter definitions for validation
+	 *
+	 * @return array
+	 */
+	function filters()
+	{
+		return array(
+			'birthday' => array(
+	            array('Date::formatted_time', array(':value', 'Y-m-d')),
+			),
+		);
+	}
+	
+	/**
 	 * Label definitions for validation
 	 *
 	 * @return array
